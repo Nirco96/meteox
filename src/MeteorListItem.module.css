@@ -6,7 +6,7 @@
     max-width: 100%;
     margin: 20px;
     overflow: hidden;
-    width: 300px;
+    width: 250px;
     max-height: 80px;
 }
 
@@ -14,6 +14,22 @@
     padding: 10px;
     position: relative;
     width: 100%;
+    min-width: 0;
+}
+
+.details label {
+    font-weight: bold;
+}
+
+.details div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.details span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .img {

@@ -15,13 +15,13 @@ export const MeteorListItem = ({name, mass, year}: MeteorListItemProps) => {
       </div>
       <div className={styles.details}>
         <div>
-          <label>Name:</label> {name}
+          <label>Name: </label><span>{name}</span>
         </div>
         <div>
-          <label>Mass:</label> {mass}
+          <label>Fell at: </label><span>{isNaN(year) ? 'unknown' : year}</span>
         </div>
         <div>
-          <label>Year:</label> {year}
+          <label>Mass: </label><span>{isNaN(mass) ? 'unknown': mass}</span>
         </div>
       </div>
     </div>

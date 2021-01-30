@@ -40,15 +40,18 @@ export const MeteorsList = ({meteors}: MeteorsListProps) => {
 
   let displayWarning = false;
 
-  if (meteorsToDisplay.length === 0 && debouncedMass !== null) {
+  if (meteorsToDisplay.length === 0 && debouncedMass !== null && mass !== null) {
 
     displayWarning = true;
 
     setTimeout(() => {
       displayWarning = false;
       let matchingMeteor = meteors.find((m) => m.mass > debouncedMass);
-      if (matchingMeteor) {
-        setSelectedYear(matchingMeteor.year);
+      let year = matchingMeteor ? matchingMeteor.year : ALL_YEARS;
+      setSelectedYear(year);
+
+      if (year === ALL_YEARS) {
+        setMass(null);
       }
     }, 1000)
   }
@@ -60,18 +63,30 @@ export const MeteorsList = ({meteors}: MeteorsListProps) => {
   let massInputPlaceholder = canFilterByMass ? 'Please enter mass to filter' : 'Please select a year in order to filter by mass';
 
   return (
-    <div>
-      <select value={Number(selectedYear)} onChange={selectYear}>
-        <option key={-1} value={-1}>View All</option>
-        {Array.from(years).map((year: number) =>
-          <option key={year} value={Number(year)}>{year}</option>
-        )}
-      </select>
-      <input value={mass ? mass : ''} disabled={!canFilterByMass} type={'text'} placeholder={massInputPlaceholder}
-             onChange={massChange}/>
-      {meteorsToDisplay.length}
-      {displayWarning ?
-        <div>the mass was not found, jumping to first-year where there is a mass that fits the criteria</div> : ''}
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1>Welcome to <span className={styles.appName}>Meteox</span></h1>
+        <div className={styles.headerDetails}>
+          <div className={`${styles.yearSelectContainer}  ${styles.spaced}`}>
+            <label className={styles.yearSelectLabel}>Show meteors from: </label>
+            <select value={Number(selectedYear)} onChange={selectYear}>
+              <option key={-1} value={-1}>All Years</option>
+              {Array.from(years).map((year: number) =>
+                <option key={year} value={year}>{year}</option>
+              )}
+            </select>
+          </div>
+          <div className={styles.spaced}>
+            <label className={styles.yearSelectLabel}>With mass larger than: </label>
+            <input value={mass ? mass : ''} disabled={!canFilterByMass} type='text' placeholder={massInputPlaceholder}
+                   onChange={massChange}/>
+          </div>
+          <div className={styles.resultNum}>Showing {meteorsToDisplay.length} meteors</div>
+          {displayWarning ?
+            <p className={styles.massWarning}>the mass was not found, jumping to first-year where there is a mass that
+              fits the criteria</p> : ''}
+        </div>
+      </div>
       <div className={styles.meteorsList}>
         {meteorItems}
       </div>
