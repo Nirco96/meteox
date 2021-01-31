@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {MeteorsList} from "./MeteorsList";
-import './App.css';
+import './Meteox.css';
 import {useDebounceValue} from "./SearchDebounce";
 
 const DATA_URL = `https://data.nasa.gov/resource/y77d-th95.json`;
