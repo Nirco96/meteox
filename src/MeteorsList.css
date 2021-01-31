@@ -1,3 +1,10 @@
+.meteorsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+}
+
 .card {
     background-color: #fff;
     border-radius: 10px;
