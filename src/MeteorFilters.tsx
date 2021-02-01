@@ -1,5 +1,6 @@
 import React, {ChangeEvent} from "react";
 import {ALL_YEARS} from "./Meteox.util";
+import "./MeteorFilters.css";
 
 type YearSelectorProps = {
   value: number,
@@ -10,7 +11,7 @@ type YearSelectorProps = {
 export const YearSelector = ({value, years, onChange}: YearSelectorProps) => {
   return (
     <React.Fragment>
-      <label className="yearSelectLabel">Show meteors from: </label>
+      <label className="filterLabel">Show meteors from: </label>
       <select value={Number(value)} onChange={onChange}>
         <option key={ALL_YEARS} value={ALL_YEARS}>All Years</option>
         {Array.from(years).map((year: number) => !isNaN(year) ?
@@ -31,7 +32,7 @@ type MassFilterProps = {
 export const MassFilter = ({value, disabled, onChange, placeholder}: MassFilterProps) => {
   return (
     <React.Fragment>
-      <label className="yearSelectLabel">With mass larger than: </label>
+      <label className="filterLabel">With mass larger than: </label>
       <input value={value ? value : ''} disabled={disabled} type="text" onChange={onChange} placeholder={placeholder}/>
     </React.Fragment>)
 }
