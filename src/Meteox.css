@@ -1,3 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .header {
     text-align: center;
     min-height: 200px;
@@ -21,25 +27,11 @@
     align-items: center;
 }
 
-.resultNum {
-    justify-content: center;
-}
-
-.massWarning {
-    color: red;
-}
-
 .appName {
     color: #7175da;
 }
 
-.yearSelectLabel {
-    font-size: larger;
-
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.warning {
+    color: white;
+    text-align: center;
 }

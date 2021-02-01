@@ -1,7 +1,7 @@
-import {Meteor} from "./Meteox";
 import "./MeteorsList.css"
 import React from "react";
 import meteorImg from "./comet-meteor.svg";
+import {Meteor} from "./Meteox.util";
 
 type MeteorsListProps = {
   meteors: Meteor[];
@@ -15,7 +15,6 @@ export const MeteorsList = ({meteors}: MeteorsListProps) => {
     </div>
   )
 };
-
 
 type MeteorListItemProps = {
   name: string,
