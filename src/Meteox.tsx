@@ -56,15 +56,16 @@ function Meteox() {
     }
   }, [selectedYear, debouncedMass, meteors, mass]);
 
-  let yearsSet: Set<number> = new Set(meteors?.map((m: Meteor) => m.year));
-
   const selectYear = (event: ChangeEvent<HTMLSelectElement>) => {
+
     setSelectedYear(Number(event.target.value));
   };
-
   const massChange = (event: ChangeEvent<HTMLInputElement>) => {
+
     setMass(Number(event.target.value));
   }
+  
+  let yearsSet: Set<number> = new Set(meteors?.map((m: Meteor) => m.year));
 
   return (
     <div className="container">
