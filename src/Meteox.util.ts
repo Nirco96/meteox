@@ -19,7 +19,7 @@ export const useFetchMeteors = () => {
     fetch(DATA_URL).then((res: Response) => res.json()).then((meteorsJson) => {
       setMeteors(meteorsJson.map((meteorJson: { name: string, id: string, mass: string, year: string }) => {
         return {...meteorJson, year: new Date(meteorJson.year).getFullYear(), mass: Number(meteorJson.mass)};
-      }).sort((m1: Meteor, m2: Meteor) => m1.year - m2.year));
+      }));
     }).catch(reason => console.log('Could not load meteors!'));
   }, []);
 

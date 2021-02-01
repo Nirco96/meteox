@@ -14,9 +14,8 @@ export const YearSelector = ({value, years, onChange}: YearSelectorProps) => {
       <label className="filterLabel">Show meteors from: </label>
       <select value={Number(value)} onChange={onChange}>
         <option key={ALL_YEARS} value={ALL_YEARS}>All Years</option>
-        {Array.from(years).map((year: number) => !isNaN(year) ?
-          <option key={year} value={year}>{year}</option> : ''
-        )}
+        {Array.from(years).filter((year) => !isNaN(year)).sort((y1, y2) => y1 - y2).map((year: number) =>
+          <option key={year} value={year}>{year}</option>)}
       </select>
     </React.Fragment>
   )
