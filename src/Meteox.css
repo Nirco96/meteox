@@ -25,10 +25,6 @@
     justify-content: center;
 }
 
-.massWarning {
-    color: red;
-}
-
 .appName {
     color: #7175da;
 }
@@ -42,4 +38,9 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+}
+
+.warning {
+    color: white;
+    text-align: center;
 }
