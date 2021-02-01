@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {MeteorsList} from "./MeteorsList";
 import './Meteox.css';
-import {useDebounceValue} from "./SearchDebounce";
+import {useDebounceValue} from "./UseDebounce";
 
 const DATA_URL = `https://data.nasa.gov/resource/y77d-th95.json`;
 const MASS_ERROR = `No result, jumping to first-year that fits the criteria`;
