@@ -31,7 +31,7 @@ export const filterMeteors = (meteors: Meteor[], year: number, mass: number | nu
     return meteors;
   }
 
-  return meteors ? meteors.filter((m) => m.year === year && (!mass || m.mass >= mass)) : [];
+  return meteors ? meteors.filter((m) => m.year === year && (!mass || m.mass > mass)) : [];
 }
 
 export const findNextYearForMass = (meteors: Meteor[], mass: number | null) => {
