@@ -13,9 +13,9 @@ import {
 } from "./Meteox.util";
 import {MassFilter, MeteorCounter, YearSelector} from "./MeteorFilters";
 
-export const Logo = () => {
+export const Logo = ({appName}: {appName: string}) => {
   return (
-    <h1>Welcome to <span className="appName">Meteox</span></h1>
+    <h1>Welcome to <span className="appName">{appName}</span></h1>
   )
 }
 
@@ -33,7 +33,7 @@ function Meteox() {
     } else {
       setWarning('Loading meteors...');
     }
-  }, [meteors])
+  }, [meteors]);
 
   useEffect(() => {
     const jumpToNextYearAndResetWarning = (delay: number) => {
@@ -54,7 +54,7 @@ function Meteox() {
         jumpToNextYearAndResetWarning(NO_RESULTS_DELAY);
       }
     }
-  }, [selectedYear, debouncedMass, meteors, mass])
+  }, [selectedYear, debouncedMass, meteors, mass]);
 
   let yearsSet: Set<number> = new Set(meteors?.map((m: Meteor) => m.year));
 
@@ -69,7 +69,7 @@ function Meteox() {
   return (
     <div className="container">
       <div className="header">
-        <Logo/>
+        <Logo appName={"Meteox"}/>
         <div className="headerDetails">
           <div className="spaced">
             <YearSelector value={selectedYear} years={yearsSet} onChange={selectYear}/>
